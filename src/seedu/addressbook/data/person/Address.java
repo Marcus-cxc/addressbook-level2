@@ -1,6 +1,10 @@
 package seedu.addressbook.data.person;
 
 import seedu.addressbook.data.exception.IllegalValueException;
+import seedu.addressbook.data.person.AddressDetails.Block;
+import seedu.addressbook.data.person.AddressDetails.Postal;
+import seedu.addressbook.data.person.AddressDetails.Street;
+import seedu.addressbook.data.person.AddressDetails.Unit;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,10 +20,10 @@ public class Address {
             "Person addresses has to be entered by a/ BLOCK, STREET, UNIT, POSTAL CODE";
     public static final String ADDRESS_VALIDATION_REGEX = ".+";
 
-    private static String block;
-    private static String street;
-    private static String unit;
-    private static String postal;
+    private static Block block;
+    private static Street street;
+    private static Unit unit;
+    private static Postal postal;
 
     public final String value;
     private boolean isPrivate;
@@ -46,10 +50,10 @@ public class Address {
     public static boolean isValidAddress(String test) {
         ArrayList<String> separatedFormat = splitByComma(test);
         if(separatedFormat.size() == 4) {
-            block = separatedFormat.get(0).trim();
-            street = separatedFormat.get(1).trim();
-            unit = separatedFormat.get(2).trim();
-            postal = separatedFormat.get(3).trim();
+            block = new Block(separatedFormat.get(0).trim());
+            street = new Street(separatedFormat.get(1).trim());
+            unit = new Unit(separatedFormat.get(2).trim());
+            postal = new Postal(separatedFormat.get(3).trim());
             return true;
         }
         else
@@ -75,7 +79,8 @@ public class Address {
 
     @Override
     public String toString() {
-        return block + ", " + street + ", " + unit + ", " + postal;
+        return block.getValue() + ", " + street.getValue()
+                + ", " + unit.getValue() + ", " + postal.getValue();
     }
 
     @Override
