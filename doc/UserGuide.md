@@ -121,7 +121,12 @@ Format: `exit`
 
 #### Saving the data 
 Address book data are saved in the hard disk automatically after any command that changes the data.<br>
-There is no need to save manually.
+There is no need to save manually. 
+
+If data cannot be saved, a message will be produced 
+
+Example:
+'Error writing to file: addressbook.xml'
 
 #### Changing the save location
 Address book data are saved in a file called `addressbook.xml` in the project root folder.
