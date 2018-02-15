@@ -69,3 +69,8 @@
 * Problem: Test fails during the very first time.<br>
   Solution: The output of the very first test run could be slightly different because the program
   creates a new storage file. Tests should pass from the 2nd run onwards.
+
+User Story:
+1. As a Human, I can store my friends personal information, so that I can retrieve find them when i need it
+2. As a Receptionist, I can hide sensitive data of my client, so i can protect the their privacy
+3. As a Doctor, I can add tags to my client, so i can view them when I search for them
