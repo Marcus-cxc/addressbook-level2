@@ -4,7 +4,7 @@ package seedu.addressbook.data.person;
  * Parent class of Address, Email and Phone
  *
  */
-public class Contact {
+public abstract class Contact {
 
     public final String value;
     private boolean isPrivate;
@@ -20,11 +20,7 @@ public class Contact {
     }
 
     @Override
-    public boolean equals(Object other) {
-        return other == this // short circuit if same object
-                || (other instanceof Phone // instanceof handles nulls
-                && this.value.equals(((Phone) other).value)); // state check
-    }
+    public abstract boolean equals(Object other);
 
     @Override
     public int hashCode() {
